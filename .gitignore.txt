@@ -1,1 +1,1 @@
-.vs/
+.vs/BLE_A2/v16/Server/sqlite3/db.lock
