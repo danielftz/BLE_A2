@@ -15,6 +15,7 @@ public class MonoPackageManager_Resources {
 		"Prism.dll",
 		"Prism.Forms.dll",
 		"ReactiveUI.dll",
+		"ReactiveUI.XamForms.dll",
 		"Splat.dll",
 		"Splat.Drawing.dll",
 		"System.Reactive.dll",

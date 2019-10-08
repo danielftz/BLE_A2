@@ -3,6 +3,7 @@ Acr.XamForms
 AndHUD
 FormsViewGroup
 Plugin.BluetoothLE
+Prism.Autofac.Forms
 ReactiveUI
 Splat.Drawing
 Xamarin.Android.Arch.Core.Common
@@ -45,4 +46,3 @@ Xamarin.Android.Support.ViewPager
 Xamarin.Essentials
 Xamarin.Forms.Platform.Android
 Xamarin.Forms.Platform
-Prism.Autofac.Forms
