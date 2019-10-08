@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ARC_BLE"
+             x:Class="ACR_BLE.MainPage">
+
+    <StackLayout>
+        <!-- Place new controls here -->
+        <Label Text="ARC BLE v01 Test Program" 
+               HorizontalOptions="Center" />
+        <Button Text="Check BLE Status" Clicked="Button1_Clicked"/>
+        <Button x:Name="ScanButton" Text="Scan" Clicked="ScanButton_Clicked"/>
+        <ListView x:Name="listView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Label Text="{Binding Name}" />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </StackLayout>
+
+</ContentPage>
+
+
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Reactive.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Forms;
+using Plugin.BluetoothLE;
+using ReactiveUI;
+
+namespace ACR_BLE
+{
+    public partial class MainPage : ContentPage
+    {
+        public IAdapter adapter;
+        public IDisposable scanner;
+        public Boolean isScanning;
+        public Int32 devCount;
+
+        private ObservableCollection<DeviceInfo> _deviceList;
+
+
+        public MainPage()
+        {
+
+            InitializeComponent();
+            isScanning = false;
+            _deviceList = new ObservableCollection<DeviceInfo>
+            {
+                new DeviceInfo{ Name="Device1"},
+                new DeviceInfo{Name="Device2"}
+            };
+            listView.ItemsSource = _deviceList;
+            devCount = 2;
+
+        }
+
+        private void Button1_Clicked(object sender, EventArgs e)
+        {
+
+            ((Button)sender).Text = "Adapter Status: " + CrossBleAdapter.Current.Status;
+        }
+
+        private void ScanButton_Clicked(object sender, EventArgs e)
+        {
+            if (isScanning)
+            {
+                scanner.Dispose();
+                isScanning = false;
+                ScanButton.Text = "Scan";
+                devCount++;
+                var myDeviceName = new DeviceInfo { Name = "Device" + devCount };
+                _deviceList.Add(myDeviceName);
+            }
+            else
+            {
+
+                isScanning = true;
+
+                scanner = CrossBleAdapter.Current
+                    .Scan()
+                    .Buffer(TimeSpan.FromSeconds(1))
+                    .Subscribe(scanResult =>
+                    {
+                        // try something else
+                        // this didn't work:  scanLabel.Text = scanResult.Device.Name;
+                        foreach (var result in scanResult) //result.Device.Name
+                        {
+                            devCount++;
+                            var myDeviceName = new DeviceInfo {Name = "Device"+devCount };
+                            _deviceList.Add(myDeviceName);
+                        }
+                    });
+
+      
+
+                ScanButton.Text = "Stop Scanning";
+            }
+
+
+        }
+
+
+    }
+}
