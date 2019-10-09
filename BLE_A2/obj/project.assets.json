@@ -36,7 +36,7 @@
           "lib/netstandard1.1/Autofac.dll": {}
         }
       },
-      "DynamicData/6.13.9": {
+      "DynamicData/6.13.13": {
         "type": "package",
         "dependencies": {
           "System.Reactive": "4.1.6"
@@ -46,6 +46,12 @@
         },
         "runtime": {
           "lib/netstandard2.0/DynamicData.dll": {}
+        }
+      },
+      "Fody/6.0.0": {
+        "type": "package",
+        "build": {
+          "build/Fody.targets": {}
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {
@@ -128,11 +134,11 @@
           "lib/netstandard2.0/Prism.Forms.dll": {}
         }
       },
-      "ReactiveUI/10.3.6": {
+      "ReactiveUI/10.4.1": {
         "type": "package",
         "dependencies": {
-          "DynamicData": "6.13.9",
-          "Splat": "9.0.5",
+          "DynamicData": "6.13.13",
+          "Splat": "9.1.1",
           "System.ComponentModel": "4.3.0",
           "System.Diagnostics.Contracts": "4.3.0",
           "System.Dynamic.Runtime": "4.3.0",
@@ -146,10 +152,31 @@
           "lib/netstandard2.0/ReactiveUI.dll": {}
         }
       },
-      "ReactiveUI.XamForms/10.3.6": {
+      "ReactiveUI.Fody/10.4.1": {
         "type": "package",
         "dependencies": {
-          "ReactiveUI": "10.3.6",
+          "Fody": "6.0.0",
+          "ReactiveUI": "10.4.1",
+          "System.ComponentModel": "4.3.0",
+          "System.Diagnostics.Contracts": "4.3.0",
+          "System.Dynamic.Runtime": "4.3.0",
+          "System.Reactive": "4.1.6",
+          "System.Runtime.Serialization.Primitives": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/ReactiveUI.Fody.Helpers.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/ReactiveUI.Fody.Helpers.dll": {}
+        },
+        "build": {
+          "build/ReactiveUI.Fody.props": {}
+        }
+      },
+      "ReactiveUI.XamForms/10.4.1": {
+        "type": "package",
+        "dependencies": {
+          "ReactiveUI": "10.4.1",
           "Xamarin.Forms": "4.1.0.778454"
         },
         "compile": {
@@ -159,7 +186,7 @@
           "lib/netstandard2.0/ReactiveUI.XamForms.dll": {}
         }
       },
-      "Splat/9.0.5": {
+      "Splat/9.1.1": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Splat.dll": {}
@@ -661,15 +688,15 @@
         "lib/netstandard1.1/Autofac.xml"
       ]
     },
-    "DynamicData/6.13.9": {
-      "sha512": "0fp+XzK80VdsrONdzkusXd2NrNqWRYFixCuGD6mK7mQir2M+t+h6MeiV4sutCnlsg31N10I8Y1wHadmGiJx3iw==",
+    "DynamicData/6.13.13": {
+      "sha512": "KFB01K2kEPIboBywPNIfSxpxHLN6zmRVvtjDl6zqoMFUrxB+UAW1NgqLj4EYWBJWbW5hTmcy2BENDgiyflDCuw==",
       "type": "package",
-      "path": "dynamicdata/6.13.9",
+      "path": "dynamicdata/6.13.13",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE/LICENSE",
-        "dynamicdata.6.13.9.nupkg.sha512",
+        "dynamicdata.6.13.13.nupkg.sha512",
         "dynamicdata.nuspec",
         "lib/net461/DynamicData.dll",
         "lib/net461/DynamicData.xml",
@@ -678,6 +705,38 @@
         "lib/uap10.0.16299/DynamicData.dll",
         "lib/uap10.0.16299/DynamicData.pri",
         "lib/uap10.0.16299/DynamicData.xml"
+      ]
+    },
+    "Fody/6.0.0": {
+      "sha512": "rH9Q7GapghyLYESfeCUOqh0S70eLc3FAikIgEEyGeng3JJf1M7mt2BUxjz93o3ipDXLrKn1s69AIEolmnVn8xg==",
+      "type": "package",
+      "path": "fody/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Fody.targets",
+        "fody.6.0.0.nupkg.sha512",
+        "fody.nuspec",
+        "netclassictask/Fody.dll",
+        "netclassictask/FodyCommon.dll",
+        "netclassictask/FodyHelpers.dll",
+        "netclassictask/FodyIsolated.dll",
+        "netclassictask/Mono.Cecil.Pdb.dll",
+        "netclassictask/Mono.Cecil.Pdb.pdb",
+        "netclassictask/Mono.Cecil.Rocks.dll",
+        "netclassictask/Mono.Cecil.Rocks.pdb",
+        "netclassictask/Mono.Cecil.dll",
+        "netclassictask/Mono.Cecil.pdb",
+        "netstandardtask/Fody.dll",
+        "netstandardtask/FodyCommon.dll",
+        "netstandardtask/FodyHelpers.dll",
+        "netstandardtask/FodyIsolated.dll",
+        "netstandardtask/Mono.Cecil.Pdb.dll",
+        "netstandardtask/Mono.Cecil.Pdb.pdb",
+        "netstandardtask/Mono.Cecil.Rocks.dll",
+        "netstandardtask/Mono.Cecil.Rocks.pdb",
+        "netstandardtask/Mono.Cecil.dll",
+        "netstandardtask/Mono.Cecil.pdb"
       ]
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
@@ -930,10 +989,10 @@
         "prism.forms.nuspec"
       ]
     },
-    "ReactiveUI/10.3.6": {
-      "sha512": "0+1hra7rWk+90o35uqf9kFyTO+fMQAKqhnFYbbA/9bpBKIK/DiHNCTs3g4l551jI4ZKrTTFn6vdIIKF7At2QNg==",
+    "ReactiveUI/10.4.1": {
+      "sha512": "RCAFJv562BctXuSbvD+KC1wTqXzp8oMVvejaa6ywT/22zk6ZbaojMM+s3Uq4t4NKvmkZ7qFYVtlo9wsOGbh8Gg==",
       "type": "package",
-      "path": "reactiveui/10.3.6",
+      "path": "reactiveui/10.4.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -960,28 +1019,60 @@
         "lib/xamarinmac20/ReactiveUI.xml",
         "lib/xamarintvos10/ReactiveUI.dll",
         "lib/xamarintvos10/ReactiveUI.xml",
-        "reactiveui.10.3.6.nupkg.sha512",
+        "reactiveui.10.4.1.nupkg.sha512",
         "reactiveui.nuspec"
       ]
     },
-    "ReactiveUI.XamForms/10.3.6": {
-      "sha512": "icedGDbiGjex1w/abjnrTBBRlRaxVCZTeDADAtkPqD2UBKGOyr2FgBVHuHUO4JygKIYVHgUt9PXPHjQJNsqhhQ==",
+    "ReactiveUI.Fody/10.4.1": {
+      "sha512": "PCp/S/nsWtwQlSSbXEbR3CH7hAAdpm9XWJ6S7q0JjYdx00akPO+KMfIQVZQlwx5JSUIIZj0TSbNdAKO7Rk/wEw==",
       "type": "package",
-      "path": "reactiveui.xamforms/10.3.6",
+      "path": "reactiveui.fody/10.4.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE/LICENSE",
+        "build/ReactiveUI.Fody.props",
+        "lib/monoandroid90/ReactiveUI.Fody.Helpers.dll",
+        "lib/monoandroid90/ReactiveUI.Fody.Helpers.pdb",
+        "lib/monoandroid90/ReactiveUI.Fody.Helpers.xml",
+        "lib/net461/ReactiveUI.Fody.Helpers.dll",
+        "lib/net461/ReactiveUI.Fody.Helpers.xml",
+        "lib/netcoreapp2.0/ReactiveUI.Fody.Helpers.dll",
+        "lib/netcoreapp2.0/ReactiveUI.Fody.Helpers.xml",
+        "lib/netstandard2.0/ReactiveUI.Fody.Helpers.dll",
+        "lib/netstandard2.0/ReactiveUI.Fody.Helpers.xml",
+        "lib/uap10.0.16299/ReactiveUI.Fody.Helpers.dll",
+        "lib/uap10.0.16299/ReactiveUI.Fody.Helpers.pri",
+        "lib/uap10.0.16299/ReactiveUI.Fody.Helpers.xml",
+        "lib/xamarinios10/ReactiveUI.Fody.Helpers.dll",
+        "lib/xamarinios10/ReactiveUI.Fody.Helpers.xml",
+        "lib/xamarinmac20/ReactiveUI.Fody.Helpers.dll",
+        "lib/xamarinmac20/ReactiveUI.Fody.Helpers.xml",
+        "lib/xamarintvos10/ReactiveUI.Fody.Helpers.dll",
+        "lib/xamarintvos10/ReactiveUI.Fody.Helpers.xml",
+        "reactiveui.fody.10.4.1.nupkg.sha512",
+        "reactiveui.fody.nuspec",
+        "weaver/ReactiveUI.Fody.dll"
+      ]
+    },
+    "ReactiveUI.XamForms/10.4.1": {
+      "sha512": "NzfsLWsemuEQxYEm+1q77lwtTqpRCSxKE8wmO/OKC7PPjKrA61wq1CCEFr+jYFLgUQneDEK0nMmMhH7VC+3PyQ==",
+      "type": "package",
+      "path": "reactiveui.xamforms/10.4.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE/LICENSE",
         "lib/netstandard2.0/ReactiveUI.XamForms.dll",
         "lib/netstandard2.0/ReactiveUI.XamForms.xml",
-        "reactiveui.xamforms.10.3.6.nupkg.sha512",
+        "reactiveui.xamforms.10.4.1.nupkg.sha512",
         "reactiveui.xamforms.nuspec"
       ]
     },
-    "Splat/9.0.5": {
-      "sha512": "/g6VaFKW7CiX/m0In4dZHI86lioh67v6ZQuToe1m4Q9ib0wExA6fSG8v1xOc0v6D9aPomL5UROiYHRjw1bNV7g==",
+    "Splat/9.1.1": {
+      "sha512": "f5yjXDMIJQrRYP1TQ1FYH7DPY3K94h/YXZk3RXYOlVXfcFvONATYwbwL4+QoQzMQfI53+hjqiP9GOylk1rKpFQ==",
       "type": "package",
-      "path": "splat/9.0.5",
+      "path": "splat/9.1.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -993,7 +1084,7 @@
         "lib/uap10.0.16299/Splat.dll",
         "lib/uap10.0.16299/Splat.pri",
         "lib/uap10.0.16299/Splat.xml",
-        "splat.9.0.5.nupkg.sha512",
+        "splat.9.1.1.nupkg.sha512",
         "splat.nuspec"
       ]
     },
@@ -3077,8 +3168,9 @@
       "NETStandard.Library >= 2.0.3",
       "Plugin.BluetoothLE >= 6.2.6",
       "Prism.Autofac.Forms >= 7.1.0.431",
-      "ReactiveUI >= 10.3.6",
-      "ReactiveUI.XamForms >= 10.3.6",
+      "ReactiveUI >= 10.4.1",
+      "ReactiveUI.Fody >= 10.4.1",
+      "ReactiveUI.XamForms >= 10.4.1",
       "Xamarin.Essentials >= 1.3.1",
       "Xamarin.Forms >= 4.2.0.848062"
     ]
@@ -3151,11 +3243,15 @@
           },
           "ReactiveUI": {
             "target": "Package",
-            "version": "[10.3.6, )"
+            "version": "[10.4.1, )"
+          },
+          "ReactiveUI.Fody": {
+            "target": "Package",
+            "version": "[10.4.1, )"
           },
           "ReactiveUI.XamForms": {
             "target": "Package",
-            "version": "[10.3.6, )"
+            "version": "[10.4.1, )"
           },
           "Xamarin.Essentials": {
             "target": "Package",

@@ -5,6 +5,7 @@ FormsViewGroup
 Plugin.BluetoothLE
 Prism.Autofac.Forms
 ReactiveUI
+ReactiveUI.Fody.Helpers
 Splat.Drawing
 Xamarin.Android.Arch.Core.Common
 Xamarin.Android.Arch.Core.Runtime

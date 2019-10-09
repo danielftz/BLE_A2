@@ -60,11 +60,11 @@
             },
             "ReactiveUI": {
               "target": "Package",
-              "version": "[10.3.6, )"
+              "version": "[10.4.1, )"
             },
             "ReactiveUI.Fody": {
               "target": "Package",
-              "version": "[10.3.6, )"
+              "version": "[10.4.1, )"
             },
             "Xamarin.Essentials": {
               "target": "Package",
@@ -152,11 +152,15 @@
             },
             "ReactiveUI": {
               "target": "Package",
-              "version": "[10.3.6, )"
+              "version": "[10.4.1, )"
+            },
+            "ReactiveUI.Fody": {
+              "target": "Package",
+              "version": "[10.4.1, )"
             },
             "ReactiveUI.XamForms": {
               "target": "Package",
-              "version": "[10.3.6, )"
+              "version": "[10.4.1, )"
             },
             "Xamarin.Essentials": {
               "target": "Package",

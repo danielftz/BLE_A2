@@ -3,23 +3,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:acr="clr-namespace:Acr.XamForms;assembly=Acr.XamForms"
              mc:Ignorable="d"
              x:Class="BLE_A2.AdapterPage">
     <ContentPage.Content>
         <StackLayout>
             <!-- Place new controls here -->
             <Label Text="Bluetooth LE Test Program" HorizontalOptions="Center" />
-            <Button Text="Check BLE Status" Clicked="Button1_Clicked"/>
-            <Button x:Name="ScanButton" Text="Scan" Clicked="ScanButton_Clicked"/>
-            <ListView x:Name="listView">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Label Text="{Binding Name}" />
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <Button Command="{Binding ScanToggle}">
+                <Button.Triggers>
+                    <DataTrigger TargetType="Button" BindingContext="{Binding IsScanning}" Value="True">
+                        <Setter Property="Text" Value="Stop Scan" />
+                    </DataTrigger>
+                    <DataTrigger TargetType="Button" BindingContext="{Binding IsScanning}" Value="False">
+                        <Setter Property="Text" Value="Scan" />
+                    </DataTrigger>
+                </Button.Triggers>
+            </Button>
+            <ActivityIndicator IsRunning="{Binding IsScanning}" />
+            <!--<Button x:Name="ScanButton" Text="Scan" Clicked="ScanButton_Clicked"/>-->
+            <!--<ListView x:Name="listView"> </ListView>-->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
