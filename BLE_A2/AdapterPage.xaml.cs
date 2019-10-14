@@ -22,6 +22,7 @@ namespace BLE_A2
         //privat/*e ObservableCollect*/ion<Deviceinfo> _deviceList;
         public AdapterPage()
         {
+            BindingContext = new AdapterViewModel();
             InitializeComponent();
             //isScanning = false;
             //_deviceList = new ObservableCollection<Deviceinfo>();
