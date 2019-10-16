@@ -23,7 +23,10 @@ namespace BLE_A2.ScanPage
         private ICommand FindAdapter { get; }
 
         [Reactive] public bool IsScanning { get; private set; }
+        [Reactive] public string adapter_is_scanning { get; private set; }
         [Reactive] public string connected_devices { get; private set; }
+
+        [Reactive] public string adapter_status { get; private set; }
         public IObservableCollection<ScanResultViewModel> Devices { get; }
 
         public override void OnAppearing()
@@ -54,20 +57,25 @@ namespace BLE_A2.ScanPage
             //    }
             //    );
             //this.connected_devices = 10;
+            //this.adapter_is_scanning = this.adapter.IsScanning.ToString();
+            this.adapter_is_scanning = this.adapter.IsScanning.ToString();
+            this.adapter_status = this.adapter.Status.ToString();
             this.ScanToggle = ReactiveCommand.Create(
                 () =>
                 {
-                    if (!IsScanning)
+                    if (!IsScanning) //when (Press to scan)
                     {
-                        //this.adapter.OpenSettings();
+                        //this.connected_devices = this.adapter.Status.ToString();
                         //this.adapter.SetAdapterState(true);
+                        //this.adapter_status = this.adapter.Status.ToString();
                         this.IsScanning = true;
                         this.scan = this.adapter.Scan().Buffer(TimeSpan.FromSeconds(1)).ObserveOn(RxApp.MainThreadScheduler).Subscribe(
                             results =>
                             {
                                 this.connected_devices = results.Count().ToString();
+                                this.adapter_is_scanning = this.adapter.IsScanning.ToString();
 
-                                foreach(var r in results)
+                                foreach (var r in results)
                                 {
                                     var dev = this.Devices.FirstOrDefault(x => x.Uuid.Equals(r.Device.Uuid));
 
@@ -120,6 +128,7 @@ namespace BLE_A2.ScanPage
                         this.scan?.Dispose();
                         //this.Devices.Clear();
                         this.IsScanning = false;
+                        this.adapter_is_scanning = this.adapter.IsScanning.ToString();
 
                     }
                 }
