@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\BLE_A2.Android"
+    "\\BLE_A2",
+    "\\BLE_A2.Android",
+    "\\BLE_A2.Android\\Properties",
+    "\\BLE_A2\\ScanPage"
   ],
-  "SelectedNode": "\\BLE_A2.Android\\MainActivity.cs",
+  "SelectedNode": "\\BLE_A2\\ScanPage\\AdapterPage.xaml",
   "PreviewInSolutionExplorer": false
 }

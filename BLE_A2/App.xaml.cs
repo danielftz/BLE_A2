@@ -10,7 +10,7 @@ namespace BLE_A2
         {
             InitializeComponent();
 
-            MainPage = new AdapterPage();
+            MainPage = new ScanPage.AdapterPage();
         }
 
         protected override void OnStart()
