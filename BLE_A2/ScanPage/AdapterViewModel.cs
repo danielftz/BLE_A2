@@ -15,13 +15,15 @@ namespace BLE_A2.ScanPage
 {
     class AdapterViewModel : ViewModel
     {
-        IAdapter adapter;
+        //readonly IAdapterScanner adapterScanner;
+        IAdapter adapter = CrossBleAdapter.Current;
         IDisposable scan;
 
         public ICommand ScanToggle { get; private set; }
+        private ICommand FindAdapter { get; }
 
         [Reactive] public bool IsScanning { get; private set; }
-        [Reactive] public int connected_devices { get; private set; }
+        [Reactive] public string connected_devices { get; private set; }
         public IObservableCollection<ScanResultViewModel> Devices { get; }
 
         public override void OnAppearing()
@@ -29,21 +31,63 @@ namespace BLE_A2.ScanPage
             //initial assignment of values
             
             this.IsScanning = false;
-            this.connected_devices = 0;
+            
             base.OnAppearing();
         }
 
         public AdapterViewModel()
         {
+            //this.connected_devices = this.adapter.IsScanning.ToString();
 
+            //this.FindAdapter = ReactiveCommand.Create(
+            //    () =>
+            //    {
+            //        adapterScanner
+            //            .FindAdapters()
+            //            .ObserveOn(RxApp.MainThreadScheduler)
+            //            .Subscribe(
+            //                async () =>
+            //                {
+
+            //                }
+            //            )
+            //    }
+            //    );
             //this.connected_devices = 10;
             this.ScanToggle = ReactiveCommand.Create(
                 () =>
                 {
                     if (!IsScanning)
                     {
-                        
+                        //this.adapter.OpenSettings();
+                        //this.adapter.SetAdapterState(true);
                         this.IsScanning = true;
+                        this.scan = this.adapter.Scan().Buffer(TimeSpan.FromSeconds(1)).ObserveOn(RxApp.MainThreadScheduler).Subscribe(
+                            results =>
+                            {
+                                this.connected_devices = results.Count().ToString();
+
+                                foreach(var r in results)
+                                {
+                                    var dev = this.Devices.FirstOrDefault(x => x.Uuid.Equals(r.Device.Uuid));
+
+                                    if (dev != null)
+                                    {
+                                        dev.TrySet(r);
+                                    }
+                                    else
+                                    {
+                                        dev = new ScanResultViewModel();
+                                        dev.TrySet(r);
+                                    }
+                                    Devices.Add(dev);
+                                }
+                                //if (result.Device.Name == "Nordic_Blinky")
+                                //{
+                                //    this.connected_devices += 1;
+                                //}
+                            }
+                        ).DisposeWith(this.DeactivateWith);
                         //this.scan = this.adapter
                         //    .Scan()
                         //    .Buffer(TimeSpan.FromSeconds(1))
@@ -76,32 +120,6 @@ namespace BLE_A2.ScanPage
                         this.scan?.Dispose();
                         //this.Devices.Clear();
                         this.IsScanning = false;
-                        this.connected_devices = 0;
-                        //this.scan = adapter
-                        //.Scan()
-                        //.Buffer(TimeSpan.FromSeconds(1))
-                        //.ObserveOn(RxApp.MainThreadScheduler)
-                        //.Subscribe(
-                        //    scanResult => {
-                                
-                                //foreach (var result in scanResult)
-                                //{
-                                //        var dev = this.Devices.FirstOrDefault(x => x.Uuid.Equals(result.Device.Uuid));
-
-                                //        if (dev != null)
-                                //        {
-                                //            dev.TrySet(result);
-                                //        }
-                                //        else
-                                //        {
-                                //            dev = new ScanResultViewModel();
-                                //            dev.TrySet(result);
-                                //            Devices.Add(dev);
-                                //        }
-
-                                //    }
-                                
-                            //});
 
                     }
                 }
