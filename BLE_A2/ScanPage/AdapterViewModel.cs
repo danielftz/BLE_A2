@@ -74,6 +74,7 @@ namespace BLE_A2.ScanPage
                             {
                                 this.connected_devices = results.Count().ToString();
                                 this.adapter_is_scanning = this.adapter.IsScanning.ToString();
+                                this.adapter_status = this.adapter.Status.ToString();
 
                                 foreach (var r in results)
                                 {
@@ -129,6 +130,7 @@ namespace BLE_A2.ScanPage
                         //this.Devices.Clear();
                         this.IsScanning = false;
                         this.adapter_is_scanning = this.adapter.IsScanning.ToString();
+                        this.adapter_status = this.adapter.Status.ToString();
 
                     }
                 }
