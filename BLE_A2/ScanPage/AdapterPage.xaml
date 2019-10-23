@@ -21,9 +21,9 @@
                 </Button.Triggers>
 
             </Button>
-            <Label Text="{Binding adapter_is_scanning}"/>
+            <!--<Label Text="{Binding adapter_is_scanning}"/>
             <Label Text="{Binding adapter_status}"/>
-            <Label Text="{Binding connected_devices}"/>
+            <Label Text="{Binding connected_devices}"/>-->
             
             <ActivityIndicator IsRunning="{Binding IsScanning}" />
             <ListView ItemsSource="{Binding Devices}" RowHeight="160">
