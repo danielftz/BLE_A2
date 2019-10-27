@@ -7,7 +7,7 @@ using System.Text;
 
 namespace BLE_A2.Infrastructure
 {
-    public abstract class ViewModel : ReactiveObject
+    public abstract class ViewModel : ReactiveObject,IRoutableViewModel
     {
         CompositeDisposable deactivateWith;
         protected CompositeDisposable DeactivateWith
