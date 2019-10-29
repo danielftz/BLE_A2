@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ReactiveUI;
+using Splat;
+using System;
+using System.Reflection;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +13,9 @@ namespace BLE_A2
         {
             InitializeComponent();
 
-            MainPage = new ScanPage.AdapterPage();
+            var Navigator = new AppNvgController();
+            //MainPage = new ScanPage.AdapterPage();
+            MainPage = new FirstPage(Navigator.generateFirstPage());
         }
 
         protected override void OnStart()
