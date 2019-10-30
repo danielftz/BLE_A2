@@ -13,7 +13,7 @@
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)xamarin.forms\4.2.0.848062\build\Xamarin.Forms.props" Condition="Exists('$(NuGetPackageRoot)xamarin.forms\4.2.0.848062\build\Xamarin.Forms.props')" />
-    <Import Project="$(NuGetPackageRoot)reactiveui.fody\10.4.1\build\ReactiveUI.Fody.props" Condition="Exists('$(NuGetPackageRoot)reactiveui.fody\10.4.1\build\ReactiveUI.Fody.props')" />
+    <Import Project="$(NuGetPackageRoot)xamarin.forms\4.3.0.947036\build\Xamarin.Forms.props" Condition="Exists('$(NuGetPackageRoot)xamarin.forms\4.3.0.947036\build\Xamarin.Forms.props')" />
+    <Import Project="$(NuGetPackageRoot)reactiveui.fody\10.5.7\build\ReactiveUI.Fody.props" Condition="Exists('$(NuGetPackageRoot)reactiveui.fody\10.5.7\build\ReactiveUI.Fody.props')" />
   </ImportGroup>
 </Project>
