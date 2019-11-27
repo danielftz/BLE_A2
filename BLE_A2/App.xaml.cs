@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ReactiveUI;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,12 @@ namespace BLE_A2
         {
             InitializeComponent();
 
-            MainPage = new ScanPage.AdapterPage();
+            RxApp.SuspensionHost.CreateNewAppState = () => new AppBootStrapper();
+            RxApp.SuspensionHost.SetupDefaultSuspendResume();
+
+            MainPage = RxApp.SuspensionHost
+                        .GetAppState<AppBootStrapper>()
+                        .CreateMainPage();
         }
 
         protected override void OnStart()

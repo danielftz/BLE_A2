@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             mc:Ignorable="d"
+             x:Class="BLE_A2.DevicePage">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--<ListView x:Name="UUID" >
+                --><!--IsGroupingEnabled="true"-->
+
+                <!--<ListView.Behaviors>
+                    <b:EventToCommandBehavior EventName="ItemTapped" Command="{Binding SelectCharacteristics}" />
+                </ListView.Behaviors>-->
+
+                <!--<ListView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <ViewCell Height="50">
+                            <ContentView Padding="20,0,0,0">
+                                <Label Text="{Binding Name, StringFormat='Service {0}'}"
+                                       FontSize="18"
+                                       FontAttributes="Bold" />
+                            </ContentView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.GroupHeaderTemplate>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Height="100">
+                            <ViewCell.View>
+                                <StackLayout>
+                                    <Label Text="{Binding Description}" FontAttributes="Bold" TextColor="Red" />
+                                    --><!--<Label Text="{Binding Uuid, StringFormat='UUID: {0}'}" FontAttributes="Italic" />
+                                    <Label Text="{Binding Properties, StringFormat='Properties: {0}'}" />
+                                    <Label Text="{Binding IsNotifying, StringFormat='Notifying: {0}'}" />
+                                    <Label Text="{Binding Value, StringFormat='Value: {0}'}" IsVisible="{Binding IsValueAvailable}" />
+                                    <Label Text="{Binding LastValue, StringFormat='Last Read: {0:hh:mm:ss tt}'}" IsVisible="{Binding IsValueAvailable}" />--><!--
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>--><!--
+            </ListView>-->
+            <Label FontSize="Large"  x:Name="buttonPressed" Text="{Binding IsButtonpressed}"/>
+            <Label FontSize="Large" Text="{Binding BatteryLevel}"/>
+            <Switch HorizontalOptions="Start" OnColor="Green"/>
+            <ListView x:Name="UUID_list">
+                
+                
+            </ListView>
+
+            <ListView x:Name="ServiceUUID_list">
+                
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

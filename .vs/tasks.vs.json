@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "task-ScanPage.xaml",
+      "appliesTo": "BLE_A2/ScanPage.xaml.cs",
+      "type": "launch"
+    }
+  ]
+}

@@ -31,5 +31,6 @@ namespace BLE_A2.Infrastructure
             this.DestroyWith?.Dispose();
         }
         protected CompositeDisposable DestroyWith { get; } = new CompositeDisposable();
+
     }
 }

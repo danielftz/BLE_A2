@@ -42,13 +42,17 @@
       "frameworks": {
         "xamarinios10": {
           "dependencies": {
+            "Acr.Ble": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
             "Acr.UserDialogs": {
               "target": "Package",
-              "version": "[7.0.30, )"
+              "version": "[7.0.35, )"
             },
-            "Acr.XamForms": {
+            "DynamicData.ReactiveUI": {
               "target": "Package",
-              "version": "[4.0.1, )"
+              "version": "[6.11.0.2613, )"
             },
             "Plugin.BluetoothLE": {
               "target": "Package",
@@ -60,11 +64,15 @@
             },
             "ReactiveUI": {
               "target": "Package",
-              "version": "[10.4.1, )"
+              "version": "[10.5.7, )"
+            },
+            "ReactiveUI.Events.XamForms": {
+              "target": "Package",
+              "version": "[10.5.7, )"
             },
             "ReactiveUI.Fody": {
               "target": "Package",
-              "version": "[10.4.1, )"
+              "version": "[10.5.7, )"
             },
             "Xamarin.Essentials": {
               "target": "Package",
@@ -72,7 +80,7 @@
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[4.2.0.848062, )"
+              "version": "[4.3.0.947036, )"
             }
           }
         }
@@ -128,13 +136,17 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
+            "Acr.Ble": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
             "Acr.UserDialogs": {
               "target": "Package",
-              "version": "[7.0.30, )"
+              "version": "[7.0.35, )"
             },
-            "Acr.XamForms": {
+            "DynamicData.ReactiveUI": {
               "target": "Package",
-              "version": "[4.0.1, )"
+              "version": "[6.11.0.2613, )"
             },
             "NETStandard.Library": {
               "suppressParent": "All",
@@ -152,15 +164,19 @@
             },
             "ReactiveUI": {
               "target": "Package",
-              "version": "[10.4.1, )"
+              "version": "[10.5.7, )"
+            },
+            "ReactiveUI.Events.XamForms": {
+              "target": "Package",
+              "version": "[10.5.7, )"
             },
             "ReactiveUI.Fody": {
               "target": "Package",
-              "version": "[10.4.1, )"
+              "version": "[10.5.7, )"
             },
             "ReactiveUI.XamForms": {
               "target": "Package",
-              "version": "[10.4.1, )"
+              "version": "[10.5.7, )"
             },
             "Xamarin.Essentials": {
               "target": "Package",
@@ -168,7 +184,7 @@
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[4.2.0.848062, )"
+              "version": "[4.3.0.947036, )"
             }
           },
           "imports": [
